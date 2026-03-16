@@ -85,18 +85,27 @@ export const taskApi = {
 
   async create(dto: CreateTaskDTO): Promise<Task> {
     const userId = getUserId();
-    const data = {
-      ...dto,
+    // Sanitize: Firestore doesn't like 'undefined'
+    const data: any = {
+      title: dto.title,
+      priority: dto.priority,
+      importance: dto.importance,
       userId,
       createdAt: serverTimestamp(),
       done: false,
       deletedAt: null,
     };
+    if (dto.description !== undefined) data.description = dto.description;
+    if (dto.deadline !== undefined) data.deadline = dto.deadline;
     
     const docRef = await addDoc(collection(db, TASKS_COLLECTION), data);
     return {
       id: docRef.id,
-      ...dto,
+      title: dto.title,
+      description: dto.description || '',
+      priority: dto.priority,
+      importance: dto.importance,
+      deadline: dto.deadline,
       createdAt: new Date().toISOString(),
       done: false,
       deletedAt: null,
@@ -105,9 +114,17 @@ export const taskApi = {
 
   async update(id: string, dto: UpdateTaskDTO): Promise<Task> {
     const docRef = doc(db, TASKS_COLLECTION, id);
-    await updateDoc(docRef, { ...dto });
     
-    // In a real app, we'd fetch the latest, but for speed we return merged
+    // Sanitize: Remove undefined fields before updating
+    const updateData: any = {};
+    if (dto.title !== undefined) updateData.title = dto.title;
+    if (dto.description !== undefined) updateData.description = dto.description || null;
+    if (dto.priority !== undefined) updateData.priority = dto.priority;
+    if (dto.importance !== undefined) updateData.importance = dto.importance;
+    if (dto.deadline !== undefined) updateData.deadline = dto.deadline || null;
+    if (dto.done !== undefined) updateData.done = dto.done;
+
+    await updateDoc(docRef, updateData);
     return { id, ...dto } as Task; 
   },
 

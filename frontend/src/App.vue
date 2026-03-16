@@ -183,8 +183,10 @@ const editingTask = ref<Task | null>(null);
 const isDark = ref(theme.global.current.value.dark);
 
 function toggleTheme() {
-  theme.global.name.value = isDark.value ? 'light' : 'dark';
+  const nextTheme = isDark.value ? 'light' : 'dark';
+  theme.global.name.value = nextTheme;
   isDark.value = !isDark.value;
+  localStorage.setItem('eisen-theme', nextTheme);
 }
 
 watch(
@@ -195,6 +197,11 @@ watch(
 );
 
 onMounted(async () => {
+  const savedTheme = localStorage.getItem('eisen-theme');
+  if (savedTheme) {
+    theme.global.name.value = savedTheme;
+    isDark.value = savedTheme === 'dark';
+  }
   await store.fetchTasks();
   await store.fetchArchived();
 });
@@ -253,7 +260,7 @@ html, body {
 .matrix-main {
   position: relative;
   overflow-y: auto;
-  background-color: #f0f4f7;
+  background-color: rgb(var(--v-theme-background));
 }
 
 /* Axis Labels */

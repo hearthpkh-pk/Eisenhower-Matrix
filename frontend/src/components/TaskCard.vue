@@ -75,13 +75,13 @@ function formatDate(dateStr: string): string {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgb(var(--v-theme-surface));
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .task-card:hover {
-  background: #ffffff;
+  background: rgb(var(--v-theme-surface));
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px) scale(1.01);
   border-color: var(--quadrant-color);
@@ -93,7 +93,6 @@ function formatDate(dateStr: string): string {
 
 .task-done {
   opacity: 0.6;
-  background: #f8fafc;
 }
 
 .task-card-row {
@@ -119,7 +118,7 @@ function formatDate(dateStr: string): string {
   font-weight: 500;
   line-height: 1.3;
   word-break: break-word;
-  color: #1a202c;
+  color: rgb(var(--v-theme-on-surface));
 }
 
 .done-title {
@@ -129,7 +128,8 @@ function formatDate(dateStr: string): string {
 
 .task-desc {
   font-size: 13px;
-  color: #64748b;
+  color: rgb(var(--v-theme-on-surface));
+  opacity: 0.7;
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;

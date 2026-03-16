@@ -30,11 +30,11 @@ export default createVuetify({
       dark: {
         dark: true,
         colors: {
-          primary: '#8AB4F8',
-          secondary: '#F28B82',
+          primary: '#0D1B2A', // Very Dark Navy for App Bar in Dark Mode
+          secondary: '#FFC107',
           accent: '#81C995',
-          background: '#121212',
-          surface: '#1E1E1E',
+          background: '#0B0D0F',
+          surface: '#1B1D1F',
           'surface-variant': '#2C2C2C',
           'on-surface': '#E8EAED',
           'on-background': '#E8EAED',

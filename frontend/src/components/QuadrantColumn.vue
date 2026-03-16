@@ -141,7 +141,7 @@ function handleDrop(event: DragEvent) {
 
 <style scoped>
 .quadrant-column {
-  background: white;
+  background: rgb(var(--v-theme-surface));
   border-radius: 24px;
   padding: 24px;
   display: flex;
@@ -150,7 +150,7 @@ function handleDrop(event: DragEvent) {
   min-height: 0;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -185,7 +185,7 @@ function handleDrop(event: DragEvent) {
   font-weight: 800;
   margin: 0;
   line-height: 1.2;
-  color: #1a202c;
+  color: rgb(var(--v-theme-on-surface));
   font-family: 'Inter', 'Prompt', sans-serif;
 }
 
