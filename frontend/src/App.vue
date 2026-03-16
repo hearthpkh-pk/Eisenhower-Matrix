@@ -2,7 +2,9 @@
   <v-app>
     <v-app-bar elevation="1" color="primary" class="px-4">
       <template #prepend>
-        <v-icon icon="mdi-view-grid-outline" color="secondary" size="28" />
+        <v-avatar size="32" class="mr-2">
+          <v-img src="/logo.png" alt="Logo" />
+        </v-avatar>
       </template>
       <v-app-bar-title class="font-weight-bold text-h6" style="letter-spacing: 1px;">
         EISENHOWER MATRIX
