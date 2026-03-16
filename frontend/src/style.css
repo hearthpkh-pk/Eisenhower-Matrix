@@ -1,1 +1,14 @@
 /* Reset defaults - Vuetify handles all styling */
+:root {
+  --v-font-family: 'Inter', 'Prompt', 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--v-font-family) !important;
+  background-color: #f0f4f7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', 'Prompt', sans-serif !important;
+  font-weight: 700 !important;
+}

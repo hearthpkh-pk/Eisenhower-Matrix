@@ -141,58 +141,67 @@ function handleDrop(event: DragEvent) {
 
 <style scoped>
 .quadrant-column {
-  background: rgba(var(--v-theme-surface-variant), 0.3);
-  border-radius: 16px;
-  padding: 16px;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   min-height: 0;
   overflow: hidden;
-  border: 1px solid rgba(128, 128, 128, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .quadrant-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   border-color: var(--quadrant-color);
-  background: var(--quadrant-color-alpha);
 }
 
 .quadrant-column.drag-over {
   border-color: var(--quadrant-color);
   background: var(--quadrant-color-alpha);
-  box-shadow: inset 0 0 20px var(--quadrant-color-alpha);
+  outline: 2px dashed var(--quadrant-color);
 }
 
 .quadrant-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 0;
+  padding: 4px 0 12px;
+  border-bottom: 2px solid var(--quadrant-color-alpha);
 }
 
 .quadrant-header-content {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .quadrant-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 800;
   margin: 0;
   line-height: 1.2;
+  color: #1a202c;
+  font-family: 'Inter', 'Prompt', sans-serif;
 }
 
 .quadrant-subtitle {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 600;
   opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .quick-add-btn {
   text-transform: none !important;
-  opacity: 0.6;
-  font-size: 13px;
+  font-weight: 700;
+  color: var(--quadrant-color);
+  background: var(--quadrant-color-alpha);
 }
 
 .quick-add-btn:hover {

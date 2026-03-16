@@ -8,17 +8,34 @@ export default createVuetify({
   components,
   directives,
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
     themes: {
+      light: {
+        dark: false,
+        colors: {
+          primary: '#0B3D91', // Navy Blue from reference
+          secondary: '#FFC107', // Yellow Highlight
+          accent: '#007BFF',
+          background: '#F0F4F7', // Light Blue-Gray background
+          surface: '#FFFFFF',
+          'surface-variant': '#E8F0F5',
+          'on-surface': '#1A202C',
+          'on-background': '#1A202C',
+          error: '#D32F2F',
+          info: '#1976D2',
+          success: '#388E3C',
+          warning: '#FFA000',
+        },
+      },
       dark: {
         dark: true,
         colors: {
           primary: '#8AB4F8',
           secondary: '#F28B82',
           accent: '#81C995',
-          background: '#1E1E1E',
-          surface: '#2D2D2D',
-          'surface-variant': '#3C3C3C',
+          background: '#121212',
+          surface: '#1E1E1E',
+          'surface-variant': '#2C2C2C',
           'on-surface': '#E8EAED',
           'on-background': '#E8EAED',
           error: '#F28B82',
@@ -27,31 +44,20 @@ export default createVuetify({
           warning: '#FDD663',
         },
       },
-      light: {
-        dark: false,
-        colors: {
-          primary: '#1A73E8',
-          secondary: '#EA4335',
-          accent: '#34A853',
-          background: '#eeefe9',
-          surface: '#FFFFFF',
-          'surface-variant': '#F1F3F4',
-          'on-surface': '#202124',
-          'on-background': '#202124',
-          error: '#EA4335',
-          info: '#1A73E8',
-          success: '#34A853',
-          warning: '#FBBC04',
-        },
-      },
     },
   },
   defaults: {
     VCard: {
-      elevation: 0,
+      elevation: 2,
+      rounded: 'xl',
     },
     VBtn: {
-      variant: 'text',
+      rounded: 'lg',
+      fontWeight: '600',
+    },
+    VTextField: {
+      variant: 'outlined',
+      density: 'comfortable',
     },
   },
 });

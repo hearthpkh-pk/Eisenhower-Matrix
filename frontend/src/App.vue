@@ -1,18 +1,18 @@
 <template>
   <v-app>
-    <v-app-bar elevation="0" color="surface" border="b">
+    <v-app-bar elevation="1" color="primary" class="px-4">
       <template #prepend>
-        <v-icon icon="mdi-view-grid-outline" color="primary" size="28" class="ml-4" />
+        <v-icon icon="mdi-view-grid-outline" color="secondary" size="28" />
       </template>
-      <v-app-bar-title class="font-weight-medium">
-        Eisenhower Matrix
+      <v-app-bar-title class="font-weight-bold text-h6" style="letter-spacing: 1px;">
+        EISENHOWER MATRIX
       </v-app-bar-title>
       <template #append>
         <v-btn
           icon
           variant="text"
           @click="toggleTheme"
-          class="mr-1"
+          class="mr-2"
         >
           <v-icon>{{ isDark ? 'mdi-weather-sunny' : 'mdi-weather-night' }}</v-icon>
         </v-btn>
@@ -20,20 +20,19 @@
           icon
           variant="text"
           @click="store.showArchive = !store.showArchive"
-          class="mr-1"
+          class="mr-2"
         >
           <v-icon>mdi-archive-outline</v-icon>
-          <v-tooltip activator="parent" location="bottom" content-class="bg-grey-darken-4 text-white">Archived Tasks</v-tooltip>
         </v-btn>
         <v-btn
-          color="primary"
+          color="secondary"
           variant="flat"
           prepend-icon="mdi-plus"
-          class="mr-4"
-          rounded="lg"
+          class="text-black font-weight-bold px-6"
+          rounded="pill"
           @click="showCreate = true"
         >
-          Create
+          CREATE TASK
         </v-btn>
       </template>
     </v-app-bar>
@@ -66,13 +65,15 @@
       <!-- Completed Section -->
       <v-expand-transition>
         <div v-if="store.completedTasks.length > 0" class="completed-section">
+          <v-divider class="mb-4" />
           <v-btn
-            variant="text"
+            variant="tonal"
+            color="primary"
             class="completed-toggle"
             @click="showCompleted = !showCompleted"
             :prepend-icon="showCompleted ? 'mdi-chevron-down' : 'mdi-chevron-right'"
           >
-            Completed ({{ store.completedTasks.length }})
+            Completed Tasks ({{ store.completedTasks.length }})
           </v-btn>
           <v-expand-transition>
             <div v-if="showCompleted" class="completed-list">
@@ -246,26 +247,27 @@ html, body {
 }
 
 .v-application {
-  font-family: 'Google Sans', 'Roboto', 'Segoe UI', sans-serif !important;
+  font-family: 'Inter', 'Prompt', sans-serif !important;
 }
 
 .matrix-main {
   position: relative;
   overflow-y: auto;
+  background-color: #f0f4f7;
 }
 
 /* Axis Labels */
 .axis-labels {
   position: relative;
   pointer-events: none;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .axis-top {
   display: flex;
   justify-content: center;
   gap: 0;
-  padding: 8px 0 4px 48px;
+  padding: 8px 0 8px 48px;
 }
 
 .axis-top .axis-label {
@@ -281,17 +283,18 @@ html, body {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 60px;
   z-index: 5;
-  padding-left: 4px;
+  padding-left: 8px;
 }
 
 .axis-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  opacity: 0.5;
+  color: #0b3d91;
+  opacity: 0.6;
 }
 
 .important-label,
@@ -306,28 +309,29 @@ html, body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  padding: 8px 24px 24px 56px;
-  min-height: calc(100vh - 160px);
+  gap: 24px;
+  padding: 8px 40px 40px 64px;
+  min-height: calc(100vh - 120px);
 }
 
 /* Completed Section */
 .completed-section {
-  padding: 8px 48px 24px;
+  padding: 24px 64px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .completed-toggle {
   text-transform: none !important;
-  font-weight: 500;
-  opacity: 0.7;
+  font-weight: 700;
+  border-radius: 12px !important;
 }
 
 .completed-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 8px 0;
-  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  padding: 24px 0;
 }
 
 .archive-item {

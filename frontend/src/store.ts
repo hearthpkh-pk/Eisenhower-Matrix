@@ -68,7 +68,9 @@ export const useTaskStore = defineStore('tasks', () => {
     try {
       const updated = await taskApi.update(id, dto);
       const idx = tasks.value.findIndex((t) => t.id === id);
-      if (idx >= 0) tasks.value[idx] = updated;
+      if (idx >= 0) {
+        tasks.value[idx] = { ...tasks.value[idx], ...updated };
+      }
       return updated;
     } catch (e: any) {
       error.value = e.response?.data?.error || e.message;

@@ -70,18 +70,21 @@ function formatDate(dateStr: string): string {
 <style scoped>
 .task-card {
   position: relative;
-  padding: 10px 12px 10px 4px;
-  border-radius: 12px;
+  padding: 16px 16px 16px 8px;
+  border-radius: 16px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  background: rgba(var(--v-theme-surface), 0.6);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .task-card:hover {
-  background: rgba(var(--v-theme-surface), 1);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
+  background: #ffffff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px) scale(1.01);
+  border-color: var(--quadrant-color);
 }
 
 .task-card:active {
@@ -89,18 +92,18 @@ function formatDate(dateStr: string): string {
 }
 
 .task-done {
-  opacity: 0.5;
+  opacity: 0.6;
+  background: #f8fafc;
 }
 
 .task-card-row {
   display: flex;
   align-items: flex-start;
-  gap: 4px;
+  gap: 12px;
 }
 
 .check-btn {
   flex-shrink: 0;
-  margin-top: -2px;
 }
 
 .task-card-content {
@@ -108,14 +111,15 @@ function formatDate(dateStr: string): string {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .task-title {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.3;
   word-break: break-word;
+  color: #1a202c;
 }
 
 .done-title {
@@ -124,9 +128,9 @@ function formatDate(dateStr: string): string {
 }
 
 .task-desc {
-  font-size: 11px;
-  opacity: 0.5;
-  line-height: 1.3;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -136,21 +140,25 @@ function formatDate(dateStr: string): string {
 .drag-handle {
   flex-shrink: 0;
   cursor: grab;
-  opacity: 0;
+  opacity: 0.2;
   transition: opacity 0.2s;
 }
 
 .task-card:hover .drag-handle {
-  opacity: 1;
+  opacity: 0.8;
+  color: var(--quadrant-color);
 }
 
 .task-meta {
   display: flex;
   align-items: center;
-  margin-top: 6px;
-  margin-left: 32px;
+  margin-top: 12px;
+  margin-left: 44px;
   font-size: 11px;
-  opacity: 0.5;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .accent-bar {
@@ -158,8 +166,8 @@ function formatDate(dateStr: string): string {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  border-radius: 0 2px 2px 0;
-  opacity: 0.7;
+  width: 4px;
+  border-radius: 0;
+  opacity: 1;
 }
 </style>

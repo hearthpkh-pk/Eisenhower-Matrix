@@ -54,7 +54,7 @@ export const QUADRANTS: QuadrantInfo[] = [
     subtitle: 'Urgent & Important',
     priority: 'urgent',
     importance: 'important',
-    color: '#C8E6C9',
+    color: '#D32F2F', // Red
     icon: 'mdi-flash',
   },
   {
@@ -63,7 +63,7 @@ export const QUADRANTS: QuadrantInfo[] = [
     subtitle: 'Not Urgent & Important',
     priority: 'not urgent',
     importance: 'important',
-    color: '#BBDEFB',
+    color: '#1976D2', // Blue
     icon: 'mdi-calendar-clock',
   },
   {
@@ -72,7 +72,7 @@ export const QUADRANTS: QuadrantInfo[] = [
     subtitle: 'Urgent & Not Important',
     priority: 'urgent',
     importance: 'not important',
-    color: '#E1BEE7',
+    color: '#F9A825', // Orange/Yellow
     icon: 'mdi-account-arrow-right',
   },
   {
@@ -81,7 +81,7 @@ export const QUADRANTS: QuadrantInfo[] = [
     subtitle: 'Not Urgent & Not Important',
     priority: 'not urgent',
     importance: 'not important',
-    color: '#FFCDD2',
+    color: '#607D8B', // Gray-Blue
     icon: 'mdi-delete-outline',
   },
 ];
